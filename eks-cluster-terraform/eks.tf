@@ -9,6 +9,9 @@ module "eks" {
 
   enable_irsa = true
 
+  cluster_endpoint_public_access       = true
+  cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"] # or your IP only
+
   eks_managed_node_groups = {
     default = {
       desired_size = 2
